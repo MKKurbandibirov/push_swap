@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:46:57 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/16 14:14:32 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/17 11:46:52 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,31 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack		**stk_a;
-	t_stack		**stk_b;
-	// t_stack		**cpy_a;
+	t_stack		*stk_a; //*stk_a1;
+	t_stack		*stk_b;
+	// t_stack		*cpy_a;
 	// (void) argc;
 	// (void) **argv;
 
-	stk_a = (t_stack **)malloc(sizeof(t_stack *));
-	// cpy_a = (t_stack **)malloc(sizeof(t_stack *));
+	// stk_a = (t_stack **)malloc(sizeof(t_stack *));
+	// stk_b = (t_stack **)malloc(sizeof(t_stack *));
 	// *cpy_a = validate(argc, argv);
-	*stk_a = validate(argc, argv);
-	// *stk_a = indexation(*stk_a);
-	// *stk_a = markup(*stk_a);
+	stk_a = validate(argc, argv);
+	// stk_a = indexation(stk_a);
+	// stk_a = markup(stk_a);
+	// stk_a1 =stk_a;
 	
-	// while (*cpy_a)
+	// while (stk_a)
 	// {
-	// 	printf("%12d -> %3d -> %3d\n", (*cpy_a)->content, (*cpy_a)->index, (*cpy_a)->keep_in_a);
-	// 	*cpy_a = (*cpy_a)->next;
+	// 	printf("%12d -> %3d -> %3d\n", stk_a->content, stk_a->index, stk_a->keep_in_a);
+	// 	stk_a = stk_a->next;
+	// }
+	// printf("\n");
+	// cpy_a = stk_copy(stk_a1);
+	// while (cpy_a)
+	// {
+	// 	printf("%12d -> %3d -> %3d\n", cpy_a->content, cpy_a->index, cpy_a->keep_in_a);
+	// 	cpy_a = cpy_a->next;
 	// }
 	// printf("\n");
 	// swap(stk_a);
@@ -45,14 +53,14 @@ int	main(int argc, char **argv)
 	// 	*stk_a = (*stk_a)->next;
 	// }
 
-	// push(cpy_a, stk_a);
-	// push(cpy_a, stk_a);
-	// push(cpy_a, stk_a);
-	// push(cpy_a, stk_a);
-	// while (*cpy_a)
+	// push(stk_b, stk_a);
+	// push(stk_b, stk_a);
+	// push(stk_b, stk_a);
+	// push(stk_b, stk_a);
+	// while (*stk_b)
 	// {
-	// 	printf("%d ", (*cpy_a)->content);
-	// 	*cpy_a = (*cpy_a)->next;
+	// 	printf("%d ", (*stk_b)->content);
+	// 	*stk_b = (*stk_b)->next;
 	// }
 	// printf("\n");
 	// while (*stk_a)
@@ -121,21 +129,20 @@ int	main(int argc, char **argv)
 	// int g = swap_is_needed(stk_a);
 	// printf("\n%d\n", g);
 	
-	*stk_a = indexation(*stk_a);
-	stk_b = from_a_to_b(stk_a);
-	printf("\n\n");
-	while (*stk_a)
-	{
-		printf("%12d -> %3d -> %3d\n", (*stk_a)->content, (*stk_a)->index, (*stk_a)->keep_in_a);
-		*stk_a = (*stk_a)->next;
-	}
-	printf("\n");
-	while (*stk_b)
-	{
-		printf("%12d -> %3d -> %3d\n", (*stk_b)->content, (*stk_b)->index, (*stk_b)->keep_in_a);
-		*stk_b = (*stk_b)->next;
-	}
-	printf("\n");
-
+	// stk_a = indexation(stk_a);
+	// stk_b = from_a_to_b(&stk_a);
+	// printf("\n\n");
+	// while (stk_a)
+	// {
+	// 	printf("%12d -> %3d -> %3d\n", stk_a->content, stk_a->index, stk_a->keep_in_a);
+	// 	stk_a = stk_a->next;
+	// }
+	// printf("\n");
+	// while (stk_b)
+	// {
+	// 	printf("%12d -> %3d -> %3d\n", stk_b->content, stk_b->index, stk_b->keep_in_a);
+	// 	stk_b = stk_b->next;
+	// }
+	// printf("\n");
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magomed <magomed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:53:33 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/15 19:26:49 by magomed          ###   ########.fr       */
+/*   Updated: 2021/12/17 11:45:00 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_stack	*validate(int argc, char **argv);
 
 t_stack	*crt_new_elm(int content);
 t_stack	*stk_push_back(t_stack *stk, int content);
+t_stack	*stk_copy(t_stack *stk);
 void	stack_free(t_stack *stk_push_back);
 
 void	swap(t_stack **stk);
@@ -49,5 +50,5 @@ int		find_markup_head_ind(t_stack *stk_a);
 t_stack	*markup(t_stack *stk);
 
 int		swap_is_needed(t_stack **stk);
-t_stack	**from_a_to_b(t_stack **stk_a);
+t_stack	*from_a_to_b(t_stack **stk_a);
 #endif

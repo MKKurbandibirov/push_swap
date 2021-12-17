@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:05:37 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/14 10:38:17 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/17 11:40:27 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	*get_indexes(t_stack *stk_a)
 
 	current = stk_a;
 	len = stk_size(current);
-	arr_a = (int *)malloc(sizeof(len));
+	arr_a = (int *)malloc(sizeof(int) * len);
 	if (!arr_a)
 		return (NULL);
 	i = 0;
