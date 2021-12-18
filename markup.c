@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 10:35:01 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/14 12:08:04 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/18 11:14:01 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	helper(t_stack *stk_i, t_stack *stk_j)
 	count = 1;
 	while (stk_j)
 	{
-		if (stk_j->index == (stk_i->index + count))
+		if (stk_j->ind == (stk_i->ind + count))
 			count++;
 		stk_j = stk_j->next;
 	}
@@ -44,7 +44,7 @@ int	find_markup_head_ind(t_stack *stk)
 		if (count > max_count)
 		{
 			max_count = count;
-			markup_head_ind = stk_i->index;
+			markup_head_ind = stk_i->ind;
 		}
 		stk_i = stk_i->next;
 	}
@@ -58,7 +58,7 @@ t_stack	*markup(t_stack *stk)
 
 	markup_head_ind = find_markup_head_ind(stk);
 	current = stk;
-	while (current->index != markup_head_ind)
+	while (current->ind != markup_head_ind)
 	{
 		current->keep_in_a = FALSE;
 		current = current->next;
@@ -67,7 +67,7 @@ t_stack	*markup(t_stack *stk)
 	current = current->next;
 	while (current)
 	{
-		if (current->index == markup_head_ind + 1)
+		if (current->ind == markup_head_ind + 1)
 		{
 			current->keep_in_a = TRUE;
 			markup_head_ind++;

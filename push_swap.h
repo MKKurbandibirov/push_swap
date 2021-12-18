@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:53:33 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/17 11:45:00 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/18 14:54:21 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,19 @@
 typedef struct s_stack
 {
 	int				content;
-	int				index;
+	int				ind;
 	int				keep_in_a;
 	struct s_stack	*next;
 }	t_stack;
+
+typedef struct s_pair
+{
+	int	ind_a;
+	int	ind_b;
+}	t_pair;
+
+char	**ft_split(char const *s, char c);
+char	**valid_helper(int argc, char **argv);
 
 t_stack	*validate(int argc, char **argv);
 
@@ -51,4 +60,7 @@ t_stack	*markup(t_stack *stk);
 
 int		swap_is_needed(t_stack **stk);
 t_stack	*from_a_to_b(t_stack **stk_a);
+
+t_pair	*find_best_pair(t_stack *stk_a, t_stack *stk_b);
+t_stack	*from_b_to_a(t_stack *stk_a, t_stack *stk_b);
 #endif

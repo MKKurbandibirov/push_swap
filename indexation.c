@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/13 16:05:37 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/17 11:40:27 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/18 11:14:01 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_stack	*indexation(t_stack *stk_a)
 		while (i < len)
 		{
 			if (current->content == arr_a[i])
-				current->index = i;
+				current->ind = i;
 			i++;
 		}
 		current = current->next;
