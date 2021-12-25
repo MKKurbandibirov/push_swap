@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:41:20 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/18 12:34:48 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/25 18:19:11 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,14 +46,14 @@ static long long	helper(char *str, int *sign)
 	return (res);
 }
 
-static t_stack	*processor(int argc, char **argv, t_stack *stk_a)
+static t_list	*processor(int argc, char **argv, t_list *stk_a)
 {
 	int			sign;
 	int			i;
 	long long	res;
 
 	res = 0;
-	i = 1;
+	i = 0;
 	while (i < argc)
 	{
 		res = helper(argv[i], &sign);
@@ -73,10 +73,10 @@ static t_stack	*processor(int argc, char **argv, t_stack *stk_a)
 	return (stk_a);
 }
 
-static void	*check_dublicate(t_stack *stk_a)
+static void	*check_dublicate(t_list *stk_a)
 {
-	t_stack		*i_stk;
-	t_stack		*j_stk;
+	t_list		*i_stk;
+	t_list		*j_stk;
 
 	i_stk = stk_a;
 	while (i_stk)
@@ -84,11 +84,11 @@ static void	*check_dublicate(t_stack *stk_a)
 		j_stk = i_stk->next;
 		while (j_stk)
 		{
-			if (i_stk->content == j_stk->content)
+			if (i_stk->val == j_stk->val)
 			{
 				write(2, "Error\n", 6);
 				stack_free(stk_a);
-				return (NULL);
+				exit(EXIT_FAILURE);
 			}
 			j_stk = j_stk->next;
 		}
@@ -97,18 +97,18 @@ static void	*check_dublicate(t_stack *stk_a)
 	return (stk_a);
 }
 
-t_stack	*validate(int argc, char **argv)
+t_list	*validator(int argc, char **argv)
 {
-	t_stack		*stk_a;
+	t_list		*stk_a;
 
 	if (argc < 2)
-		return (NULL);
+		exit(EXIT_FAILURE);
 	stk_a = NULL;
 	stk_a = processor(argc, argv, stk_a);
 	if (!stk_a)
 	{
 		stack_free(stk_a);
-		return (NULL);
+		exit(EXIT_FAILURE);
 	}
 	return (check_dublicate(stk_a));
 }

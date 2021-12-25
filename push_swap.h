@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:53:33 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/18 14:54:21 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/25 17:11:47 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,50 +17,56 @@
 # include <unistd.h>
 
 # define ERR_CODE -2147483649
-# define EMPTY_IND -1
-# define TRUE 1
-# define FALSE -1
-# define NONE 0
 
-typedef struct s_stack
+typedef struct s_list
 {
-	int				content;
-	int				ind;
-	int				keep_in_a;
-	struct s_stack	*next;
-}	t_stack;
+	int				val;
+	struct s_list	*next;
+}	t_list;
 
-typedef struct s_pair
+typedef struct s_stacks
 {
-	int	ind_a;
-	int	ind_b;
-}	t_pair;
+	t_list	*stk_a;
+	t_list	*stk_b;
+	t_list	*cur;
+	int		pos_a;
+	int		len_a;
+	int		pos_b;
+	int		len_b;
+	int		method_v;
+	int		min_op;
+	int		i;
+}	t_stacks;
 
 char	**ft_split(char const *s, char c);
 char	**valid_helper(int argc, char **argv);
 
-t_stack	*validate(int argc, char **argv);
+t_list	*validator(int argc, char **argv);
 
-t_stack	*crt_new_elm(int content);
-t_stack	*stk_push_back(t_stack *stk, int content);
-t_stack	*stk_copy(t_stack *stk);
-void	stack_free(t_stack *stk_push_back);
+t_list	*crt_new_elm(int val);
+t_list	*stk_push_back(t_list *stk, int val);
+t_list	*stk_copy(t_list *stk);
+void	stack_free(t_list *stk_push_back);
+int		stk_size(t_list *stk_a);
 
-void	swap(t_stack **stk);
-void	push(t_stack **stk_1, t_stack **stk_2);
-void	rotate(t_stack **stk);
-void	reverse_rotate(t_stack **stk);
+void	swap(t_list **stk);
+void	push(t_list **stk_1, t_list **stk_2);
+void	rotate(t_list **stk);
+void	reverse_rotate(t_list **stk);
 
-int		stk_size(t_stack *stk_a);
-int		*get_indexes(t_stack *stk_a);
-t_stack	*indexation(t_stack *stk_a);
+int		max(int a, int b);
+int		min(int a, int b);
+int		abs(int a);
+int		diff(int a, int b);
 
-int		find_markup_head_ind(t_stack *stk_a);
-t_stack	*markup(t_stack *stk);
+void	set_pos_b(t_stacks *st, int i);
 
-int		swap_is_needed(t_stack **stk);
-t_stack	*from_a_to_b(t_stack **stk_a);
+void	method_1(t_stacks *ob);
+void	method_2(t_stacks *ob);
+void	method_3(t_stacks *ob);
+void	method_4(t_stacks *ob);
 
-t_pair	*find_best_pair(t_stack *stk_a, t_stack *stk_b);
-t_stack	*from_b_to_a(t_stack *stk_a, t_stack *stk_b);
+void	rotate_and_write(t_stacks *stacks, int c);
+void	rev_rotate_and_write(t_stacks *stacks, int c);
+void	push_and_write(t_stacks *stacks, int c);
 #endif

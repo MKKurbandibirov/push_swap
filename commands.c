@@ -6,16 +6,16 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 12:30:35 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/16 15:20:52 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/25 14:52:33 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack **stk)
+void	swap(t_list **stk)
 {
-	t_stack	*first;
-	t_stack	*second;
+	t_list	*first;
+	t_list	*second;
 
 	if (stk && (*stk)->next)
 	{
@@ -27,9 +27,9 @@ void	swap(t_stack **stk)
 	}
 }
 
-void	push(t_stack **stk_1, t_stack **stk_2)
+void	push(t_list **stk_1, t_list **stk_2)
 {
-	t_stack	*head_2;
+	t_list	*head_2;
 
 	if (!*stk_2)
 		return ;
@@ -45,10 +45,10 @@ void	push(t_stack **stk_1, t_stack **stk_2)
 	*stk_1 = head_2;
 }
 
-void	rotate(t_stack **stk)
+void	rotate(t_list **stk)
 {
-	t_stack	*head;
-	t_stack	*current;
+	t_list	*head;
+	t_list	*current;
 
 	if (*stk && (*stk)->next)
 	{
@@ -64,10 +64,10 @@ void	rotate(t_stack **stk)
 	}
 }
 
-void	reverse_rotate(t_stack **stk)
+void	reverse_rotate(t_list **stk)
 {
-	t_stack	*current;
-	t_stack	*last;
+	t_list	*current;
+	t_list	*last;
 
 	if (*stk && (*stk)->next)
 	{

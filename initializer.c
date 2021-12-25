@@ -6,33 +6,31 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 14:18:48 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/18 11:14:01 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/25 14:52:33 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*crt_new_elm(int content)
+t_list	*crt_new_elm(int val)
 {
-	t_stack	*new;
+	t_list	*new;
 
-	new = (t_stack *)malloc(sizeof(t_stack));
+	new = (t_list *)malloc(sizeof(t_list));
 	if (!new)
 		return (NULL);
-	new->content = content;
-	new->ind = EMPTY_IND;
-	new->keep_in_a = NONE;
+	new->val = val;
 	new->next = NULL;
 	return (new);
 }
 
-t_stack	*stk_push_back(t_stack *stk, int content)
+t_list	*stk_push_back(t_list *stk, int val)
 {
-	t_stack	*current;
+	t_list	*current;
 
 	if (!stk)
 	{
-		stk = crt_new_elm(content);
+		stk = crt_new_elm(val);
 		return (stk);
 	}
 	current = stk;
@@ -40,45 +38,56 @@ t_stack	*stk_push_back(t_stack *stk, int content)
 	{
 		current = current->next;
 	}
-	current->next = (t_stack *)malloc(sizeof(t_stack));
+	current->next = (t_list *)malloc(sizeof(t_list));
 	if (!current->next)
 		return (NULL);
-	current->next->content = content;
-	current->next->ind = EMPTY_IND;
-	current->keep_in_a = NONE;
+	current->next->val = val;
 	current->next->next = NULL;
 	return (stk);
 }
 
-t_stack	*stk_copy(t_stack *stk)
+t_list	*stk_copy(t_list *stk)
 {
-	t_stack	*copy;
-	t_stack	*current;
+	t_list	*copy;
+	t_list	*current;
 
 	copy = NULL;
 	current = stk;
 	while (current)
 	{
-		copy = stk_push_back(copy, current->content);
+		copy = stk_push_back(copy, current->val);
 		if (!copy)
 			return (NULL);
 		current = current->next;
 	}
-	copy = indexation(copy);
-	copy = markup(copy);
 	return (copy);
 }
 
-void	stack_free(t_stack *stk)
+void	stack_free(t_list *stk)
 {
-	t_stack	*current;
+	t_list	*current;
 
 	while (stk)
 	{
 		current = stk;
-		free(current);
 		stk = stk->next;
+		free(current);
 	}
 	free(stk);
 	stk = NULL;
+}
+
+int	stk_size(t_list *stk_a)
+{
+	t_list	*current;
+	int		size;
+
+	current = stk_a;
+	size = 0;
+	while (current)
+	{
+		size++;
+		current = current->next;
+	}
+	return (size);
 }
