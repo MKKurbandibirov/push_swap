@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:46:57 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/25 17:22:37 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/26 13:23:36 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,21 @@ void	finale_rotate(t_stacks *stacks)
 {
 	int	min;
 	int	min_pos;
+	int	tmp_pos;
 
 	min = 2147483647;
 	min_pos = 0;
+	tmp_pos = 0;
 	stacks->cur = stacks->stk_a;
 	while (stacks->cur)
 	{
 		if (stacks->cur->val < min)
+		{
 			min = stacks->cur->val;
+			min_pos = tmp_pos;
+		}
 		stacks->cur = stacks->cur->next;
-		min_pos++;
+		tmp_pos++;
 	}
 	if (min_pos > stacks->len_a / 2)
 	{
@@ -70,22 +75,36 @@ void	sort(t_stacks *stacks)
 
 void	validate(t_stacks *stacks, int argc, char **argv)
 {
-	char		**nums;
-	int			count;
+	int	max;
+	int	min;
 
-	nums = valid_helper(argc, argv);
-	count = 0;
-	while (nums[count])
-		count++;
-	if (count < 2)
-	{
-		exit (1);
-	}
 	init_stacks(stacks);
-	stacks->stk_a = validator(count, nums);
-	while (stacks->stk_a->next)
-		push_and_write(stacks, 'b');
+	stacks->stk_a = validator(argc, argv);
 	stacks->len_a = stk_size(stacks->stk_a);
+	max = -1;
+	stacks->cur = stacks->stk_a;
+	while (stacks->cur)
+	{
+		if (stacks->cur->val > max)
+			max = stacks->cur->val;
+		stacks->cur = stacks->cur->next;
+	}
+	min = 2147483647;
+	stacks->cur = stacks->stk_a;
+	while (stacks->cur)
+	{
+		if (stacks->cur->val < min)
+			min = stacks->cur->val;
+		stacks->cur = stacks->cur->next;
+	}
+	stacks->cur = stacks->stk_a;
+	while (stacks->len_a > 2)
+	{
+		if (stacks->stk_a->val != min && stacks->stk_a->val != max)
+			push_and_write(stacks, 'b');
+		else
+			rotate_and_write(stacks, 'a');
+	}
 	stacks->len_b = stk_size(stacks->stk_b);
 }
 
@@ -95,6 +114,11 @@ int	main(int argc, char **argv)
 
 	validate(&stacks, argc, argv);
 	sort(&stacks);
-	// getchar();
+	
+	// while (stacks.stk_a)
+	// {
+	// 	printf("|%4d|\n", stacks.stk_a->val);
+	// 	stacks.stk_a = stacks.stk_a->next;
+	// }
 	return (0);
 }

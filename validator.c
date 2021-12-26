@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:41:20 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/25 18:19:11 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/26 13:23:09 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static long long	helper(char *str, int *sign)
 	return (res);
 }
 
-static t_list	*processor(int argc, char **argv, t_list *stk_a)
+static t_list	*processor(int count, char **nums, t_list *stk_a)
 {
 	int			sign;
 	int			i;
@@ -54,9 +54,9 @@ static t_list	*processor(int argc, char **argv, t_list *stk_a)
 
 	res = 0;
 	i = 0;
-	while (i < argc)
+	while (i < count)
 	{
-		res = helper(argv[i], &sign);
+		res = helper(nums[i], &sign);
 		if (res == ERR_CODE)
 			return (NULL);
 		res = sign * res;
@@ -100,11 +100,17 @@ static void	*check_dublicate(t_list *stk_a)
 t_list	*validator(int argc, char **argv)
 {
 	t_list		*stk_a;
+	char		**nums;
+	int			count;
 
-	if (argc < 2)
+	nums = valid_helper(argc, argv);
+	count = 0;
+	while (nums[count])
+		count++;
+	if (count < 2)
 		exit(EXIT_FAILURE);
 	stk_a = NULL;
-	stk_a = processor(argc, argv, stk_a);
+	stk_a = processor(count, nums, stk_a);
 	if (!stk_a)
 	{
 		stack_free(stk_a);
