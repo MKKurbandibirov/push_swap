@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magomed <magomed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:46:57 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/26 13:23:36 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/26 19:58:55 by magomed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,13 +73,75 @@ void	sort(t_stacks *stacks)
 	finale_rotate(stacks);
 }
 
+void	sort_for_3(t_list *list)
+{
+	int el_1;
+	int el_2;
+	int el_3;
+
+	el_1 = list->val;
+	el_2 = list->next->val;
+	el_3 = list->next->next->val;
+	if (el_1 > el_2 && el_2 > el_3 && el_1 > el_3)
+	{
+		swap(&list);
+		reverse_rotate(&list);
+		write (1, "sa\nrra\n", 7);
+	}
+	if (el_1 > el_2 && el_2 < el_3 && el_1 < el_3)
+	{
+		swap(&list);
+		write (1, "sa\n", 3);
+	}
+	if (el_1 > el_2 && el_2 < el_3 && el_1 > el_3)
+	{
+		rotate(&list);
+		write(1, "ra\n", 3);
+	}
+	if (el_1 < el_2 && el_2 > el_3 && el_1 < el_3)
+	{
+		swap(&list);
+		rotate(&list);
+		write(1, "sa/nra/n", 6);
+	}
+	if (el_1 < el_2 && el_3 > el_1 && el_1 > el_3)
+	{
+		reverse_rotate(&list);
+		write (1, "rra\n", 4);
+	}
+}
+
 void	validate(t_stacks *stacks, int argc, char **argv)
 {
 	int	max;
 	int	min;
+	char		**nums;
+	int			count;
 
+	nums = valid_helper(argc, argv);
+	count = 0;
+	while (nums[count])
+		count++;
+	if (count == 1)
+		exit(EXIT_SUCCESS);
+	if (count == 2 && stacks->stk_a->val > stacks->stk_a->next->val)
+	{
+		swap(&(stacks->stk_a));
+		write (1, "sa\n", 3);
+	}
+	if (count == 3)
+		sort_for_3(stacks->stk_a);
+	if (count > 3 && count < 6)
+	{
+		push_and_write(stacks, 'b');
+		if (stacks->len_a == 4)
+			push_and_write(stacks, 'b');
+		sort_for_3(stacks->stk_a);
+		sort(stacks);
+	}
+		
 	init_stacks(stacks);
-	stacks->stk_a = validator(argc, argv);
+	stacks->stk_a = validator(count, nums);
 	stacks->len_a = stk_size(stacks->stk_a);
 	max = -1;
 	stacks->cur = stacks->stk_a;
@@ -108,11 +170,29 @@ void	validate(t_stacks *stacks, int argc, char **argv)
 	stacks->len_b = stk_size(stacks->stk_b);
 }
 
+int is_sorted(t_list *list)
+{
+	t_list *cur;
+	
+	cur = list;
+	while (cur->next)
+	{
+		if (cur->val > cur->next->val)
+		{
+			return (0);
+		}
+		cur = cur->next;
+	}
+	return (1);
+}
+
 int	main(int argc, char **argv)
 {
 	t_stacks	stacks;
 
 	validate(&stacks, argc, argv);
+	if (is_sorted(stacks.stk_a))
+		return (0);
 	sort(&stacks);
 	
 	// while (stacks.stk_a)
