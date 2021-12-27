@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   validator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: magomed <magomed@student.42.fr>            +#+  +:+       +#+        */
+/*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 13:41:20 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/26 19:25:13 by magomed          ###   ########.fr       */
+/*   Updated: 2021/12/27 12:04:11 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,18 +99,19 @@ static void	*check_dublicate(t_list *stk_a)
 
 t_list	*validator(int count, char **nums)
 {
-	t_list		*stk_a;
-	// char		**nums;
-	// int			count;
+	t_list	*stk_a;
+	int		i;
 
-	// nums = valid_helper(argc, argv);
-	// count = 0;
-	// while (nums[count])
-	// 	count++;
-	// if (count < 2)
-	// 	exit(EXIT_FAILURE);
 	stk_a = NULL;
 	stk_a = processor(count, nums, stk_a);
+	i = 0;
+	while (nums[i])
+	{
+		free(nums[i]);
+		i++;
+	}
+	free(nums);
+	nums = NULL;
 	if (!stk_a)
 	{
 		stack_free(stk_a);

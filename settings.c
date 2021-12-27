@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort1.c                                            :+:      :+:    :+:   */
+/*   settings.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 14:58:29 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/25 16:36:27 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/27 11:54:42 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,6 @@ void	set_pos_a(t_stacks *st, int v)
 	while (c->next)
 	{
 		if (v > c->val && v < c->next->val)
-			st->pos_a = i + 1;
-		else if (v < c->val && v < c->next->val && c->val > c->next->val)
-			st->pos_a = i + 1;
-		else if (v > c->val && c->next->val && c->val > c->next->val)
 			st->pos_a = i + 1;
 		i++;
 		c = c->next;

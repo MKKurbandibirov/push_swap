@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:53:33 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/25 17:11:47 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/27 12:01:50 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ t_list	*validator(int argc, char **argv);
 t_list	*crt_new_elm(int val);
 t_list	*stk_push_back(t_list *stk, int val);
 t_list	*stk_copy(t_list *stk);
-void	stack_free(t_list *stk_push_back);
+void	stack_free(t_list *stk);
 int		stk_size(t_list *stk_a);
 
 void	swap(t_list **stk);
@@ -69,4 +69,12 @@ void	method_4(t_stacks *ob);
 void	rotate_and_write(t_stacks *stacks, int c);
 void	rev_rotate_and_write(t_stacks *stacks, int c);
 void	push_and_write(t_stacks *stacks, int c);
+void	swap_and_write(t_stacks *stacks);
+
+void	start_push_b(t_stacks *stacks);
+
+void	finale_rotate(t_stacks *stacks);
+void	sort(t_stacks *stacks);
+void	sort_for_3(t_stacks *stacks);
+int		is_sorted(t_list *list);
 #endif

@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 15:01:08 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/25 15:54:36 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/27 11:01:14 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,10 @@ void	push_and_write(t_stacks *stacks, int c)
 		stacks->len_a++;
 		stacks->len_b--;
 	}
+}
+
+void	swap_and_write(t_stacks *stacks)
+{
+	swap(&(stacks->stk_a));
+	write(1, "sa\n", 3);
 }
