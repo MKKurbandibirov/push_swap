@@ -6,23 +6,11 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:46:57 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/27 12:04:47 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/27 14:59:36 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-static void	init_stacks(t_stacks *st)
-{
-	st->stk_a = NULL;
-	st->stk_b = NULL;
-	st->cur = NULL;
-	st->min_op = 0;
-	st->method_v = 0;
-	st->len_a = 0;
-	st->len_b = 0;
-}
 
 static void	len_checker(t_stacks *stacks, int count)
 {

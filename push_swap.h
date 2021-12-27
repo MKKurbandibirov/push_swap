@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:53:33 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/27 12:01:50 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/27 13:10:13 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,4 +77,6 @@ void	finale_rotate(t_stacks *stacks);
 void	sort(t_stacks *stacks);
 void	sort_for_3(t_stacks *stacks);
 int		is_sorted(t_list *list);
+
+void	init_stacks(t_stacks *st);
 #endif

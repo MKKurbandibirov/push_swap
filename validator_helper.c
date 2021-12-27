@@ -6,11 +6,22 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/18 12:36:13 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/26 13:21:58 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/27 13:52:43 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	init_stacks(t_stacks *st)
+{
+	st->stk_a = NULL;
+	st->stk_b = NULL;
+	st->cur = NULL;
+	st->min_op = 0;
+	st->method_v = 0;
+	st->len_a = 0;
+	st->len_b = 0;
+}
 
 static int	ft_strlen(const char *c)
 {
