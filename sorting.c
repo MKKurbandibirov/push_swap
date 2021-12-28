@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 11:10:18 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/28 12:42:46 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/28 14:47:58 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,16 +71,16 @@ void	sort_for_3(t_stacks *stacks)
 		swap_and_write(stacks);
 		rev_rotate_and_write(stacks, 'a');
 	}
-	if (el_1 > el_2 && el_2 < el_3 && el_1 < el_3)
+	else if (el_1 > el_2 && el_2 < el_3 && el_1 < el_3)
 		swap_and_write(stacks);
-	if (el_1 > el_2 && el_2 < el_3 && el_1 > el_3)
+	else if (el_1 > el_2 && el_2 < el_3 && el_1 > el_3)
 		rotate_and_write(stacks, 'a');
-	if (el_1 < el_2 && el_2 > el_3 && el_1 < el_3)
+	else if (el_1 < el_2 && el_2 > el_3 && el_1 < el_3)
 	{
 		swap_and_write(stacks);
 		rotate_and_write(stacks, 'a');
 	}
-	if (el_1 < el_2 && el_3 > el_1 && el_1 > el_3)
+	else if (el_1 < el_2 && el_2 > el_1 && el_1 > el_3)
 		rev_rotate_and_write(stacks, 'a');
 }
 
@@ -95,6 +95,5 @@ int	is_sorted(t_list *list)
 			return (0);
 		cur = cur->next;
 	}
-	stack_free(list);
 	return (1);
 }
