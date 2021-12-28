@@ -6,7 +6,7 @@
 /*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:46:57 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/28 15:47:46 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/28 19:05:31 by nfarfetc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	start_push_b(&stacks);
+	sort_for_3(&stacks);
 	sort(&stacks);
 	stack_free(stacks.stk_a);
 	return (0);
