@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magomed <magomed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/30 12:46:57 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/28 19:05:31 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/29 13:24:24 by magomed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ static void	len_checker(t_stacks *stacks, int count)
 		swap_and_write(stacks);
 	else if (count == 3)
 		sort_for_3(stacks);
+	else if (count == 5 || count == 4)
+	{
+		push_and_write(stacks, 'b');
+		if (stacks->len_a == 4)
+			push_and_write(stacks, 'b');
+		sort_for_3(stacks);
+		sort(stacks);
+	}
 }
 
 static void	validate(t_stacks *stacks, int argc, char **argv)

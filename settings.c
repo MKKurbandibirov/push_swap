@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   settings.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magomed <magomed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/25 14:58:29 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/28 19:04:44 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/29 13:24:13 by magomed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ void	set_pos_a(t_stacks *st, int v)
 	while (c->next)
 	{
 		if (v > c->val && v < c->next->val)
+			st->pos_a = i + 1;
+		else if (v < c->val && v < c->next->val && c->val > c->next->val)
+			st->pos_a = i + 1;
+		else if (v > c->val && c->next->val && c->val > c->next->val)
 			st->pos_a = i + 1;
 		i++;
 		c = c->next;
