@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magomed <magomed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 13:01:29 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/28 12:42:33 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2021/12/31 14:42:12 by magomed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,7 @@ int	norm_helper_2(t_stacks *stacks, char *str)
 void	check_str(t_stacks *stacks)
 {
 	char	*str;
-	int		ok;
 
-	ok = 1;
 	while (1)
 	{
 		str = get_next_line(0);

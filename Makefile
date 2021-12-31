@@ -2,7 +2,7 @@ NAME		=	push_swap
 
 CHECK_NAME	=	checker
 
-HEADER		=	push_swap.h
+#HEADER		=	push_swap.h
 
 SRCS		=	push_swap.c split.c validator_helper.c validator.c initializer.c commands.c \
 				commands_wrap.c utils_func.c methods.c settings.c sorting.c sort_start.c \
@@ -13,7 +13,7 @@ CHECK_SRCS	=	checker.c validator.c validator_helper.c split.c initializer.c comm
 				sorting.c methods.c commands_wrap.c settings.c utils_func.c get_next_line/*.c
 				
 CC			=	gcc
-CFLAGS		=	-Wall -Wextra -Werror -I$(HEADER)
+CFLAGS		=	-Wall -Wextra -Werror #-I$(HEADER)
 
 .PHONY		:	all bonus clean fclean re
 
