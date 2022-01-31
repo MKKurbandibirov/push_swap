@@ -26,12 +26,12 @@ The program should output a sequence of commands with which you can sort the ```
 ### Examples:
 
 * Error validation:
----
+
 ![image](https://user-images.githubusercontent.com/74917681/151823654-a5a6321c-efaf-439a-8550-9bccf278584d.png)
 ---
 
 * Standart work:
----
+
 ![image](https://user-images.githubusercontent.com/74917681/151823824-b22b8d1f-edb5-4a5f-9b98-de096c45b50d.png)
 ---
 
@@ -40,6 +40,12 @@ The program should output a sequence of commands with which you can sort the ```
 In this part should write your own ```checker``` programm to check your ```push_swap``` and write in terminal "OK" if stack is sorted or "KO" if it is not.
 
 ### Examples:
+* Error validation the same as in the mandatory part and checking sorting commands
+* Bonus work:
+
+![image](https://user-images.githubusercontent.com/74917681/151827211-1818e580-b57d-44a3-bb5f-656893ab201c.png)
 ---
 
----
+## Testing
+
+if you want to test your ```push_swap``` go to ```ps_test``` directory and follow the instructions in ```Readme.md``` there
