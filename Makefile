@@ -17,9 +17,9 @@ CFLAGS		=	-Wall -Wextra -Werror #-I$(HEADER)
 
 .PHONY		:	all bonus clean fclean re
 
-all			:	$(NAME) printpush
+all			:	$(NAME)
 
-bonus		:	printcheck
+bonus		:	
 	@$(CC) $(CFLAGS) -o $(CHECK_NAME) $(CHECK_SRCS)
 
 %.o:			%.c $(HEADER)
@@ -35,19 +35,3 @@ fclean		:	clean
 	@rm -f $(NAME) $(CHECK_NAME)
 
 re:			fclean all
-
-printpush:
-	@echo "╭━━━┳╮╱╭┳━━━┳╮╱╭┳━━━┳╮╭╮╭┳━━━┳━━━╮"
-	@echo "┃╭━╮┃┃╱┃┃╭━╮┃┃╱┃┃╭━╮┃┃┃┃┃┃╭━╮┃╭━╮┃"
-	@echo "┃╰━╯┃┃╱┃┃╰━━┫╰━╯┃╰━━┫┃┃┃┃┃┃╱┃┃╰━╯┃"
-	@echo "┃╭━━┫┃╱┃┣━━╮┃╭━╮┣━━╮┃╰╯╰╯┃╰━╯┃╭━━╯"
-	@echo "┃┃╱╱┃╰━╯┃╰━╯┃┃╱┃┃╰━╯┣╮╭╮╭┫╭━╮┃┃"
-	@echo "╰╯╱╱╰━━━┻━━━┻╯╱╰┻━━━╯╰╯╰╯╰╯╱╰┻╯"
-
-printcheck:
-	@echo "╭━━━┳╮╱╭┳━━━┳━━━┳╮╭━┳━━━┳━━━╮"
-	@echo "┃╭━╮┃┃╱┃┃╭━━┫╭━╮┃┃┃╭┫╭━━┫╭━╮┃"
-	@echo "┃┃╱╰┫╰━╯┃╰━━┫┃╱╰┫╰╯╯┃╰━━┫╰━╯┃"
-	@echo "┃┃╱╭┫╭━╮┃╭━━┫┃╱╭┫╭╮┃┃╭━━┫╭╮╭╯"
-	@echo "┃╰━╯┃┃╱┃┃╰━━┫╰━╯┃┃┃╰┫╰━━┫┃┃╰╮"
-	@echo "╰━━━┻╯╱╰┻━━━┻━━━┻╯╰━┻━━━┻╯╰━╯"

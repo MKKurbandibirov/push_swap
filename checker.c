@@ -6,14 +6,12 @@
 /*   By: magomed <magomed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 13:01:29 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/31 14:42:12 by magomed          ###   ########.fr       */
+/*   Updated: 2022/01/31 18:31:51 by magomed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "get_next_line/get_next_line.h"
-
-#include <stdio.h>
 
 int	str_cmp(char *s1, char *s2)
 {
@@ -93,6 +91,7 @@ void	check_str(t_stacks *stacks)
 			write (1, "Error\n", 6);
 			exit(EXIT_FAILURE);
 		}
+		free(str);
 	}
 	if (is_sorted(stacks->stk_a))
 		write (1, "OK\n", 3);
@@ -113,5 +112,7 @@ int	main(int argc, char **argv)
 	init_stacks(&stacks);
 	stacks.stk_a = validator(count, nums);
 	check_str(&stacks);
+	stack_free(stacks.stk_a);
+	stack_free(stacks.stk_b);
 	return (0);
 }

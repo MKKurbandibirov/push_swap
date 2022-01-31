@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   commands.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nfarfetc <nfarfetc@student.42.fr>          +#+  +:+       +#+        */
+/*   By: magomed <magomed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/12 12:30:35 by nfarfetc          #+#    #+#             */
-/*   Updated: 2021/12/28 12:42:37 by nfarfetc         ###   ########.fr       */
+/*   Updated: 2022/01/31 18:28:57 by magomed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	swap(t_list **stk)
 	t_list	*first;
 	t_list	*second;
 
-	if (stk && (*stk)->next)
+	if (*stk && (*stk)->next)
 	{
 		first = *stk;
 		second = (*stk)->next;
