@@ -10,7 +10,7 @@ SRCS		=	push_swap.c split.c validator_helper.c validator.c initializer.c command
 OBJS		=	$(SRCS:.c=.o)
 				
 CHECK_SRCS	=	checker.c validator.c validator_helper.c split.c initializer.c commands.c \
-				sorting.c methods.c commands_wrap.c settings.c utils_func.c get_next_line/*.c
+				sorting.c methods.c commands_wrap.c settings.c utils_func.c GNL/*.c
 				
 CC			=	gcc
 CFLAGS		=	-Wall -Wextra -Werror #-I$(HEADER)

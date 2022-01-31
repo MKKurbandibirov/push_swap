@@ -6,12 +6,12 @@
 /*   By: magomed <magomed@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/27 13:01:29 by nfarfetc          #+#    #+#             */
-/*   Updated: 2022/01/31 18:31:51 by magomed          ###   ########.fr       */
+/*   Updated: 2022/01/31 19:15:43 by magomed          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "get_next_line/get_next_line.h"
+#include "GNL/get_next_line.h"
 
 int	str_cmp(char *s1, char *s2)
 {
