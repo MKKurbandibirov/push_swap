@@ -25,4 +25,8 @@ The program should output a sequence of commands with which you can sort the ```
 
 ### Examples:
 
+* Error validation:
+![image](https://user-images.githubusercontent.com/74917681/151823654-a5a6321c-efaf-439a-8550-9bccf278584d.png)
 
+* Mandatory:
+![image]
