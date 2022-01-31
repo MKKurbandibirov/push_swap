@@ -2,7 +2,9 @@
 
 [Subject](https://github.com/MKKurbandibirov/Numbers_convert-aka-C_Rush_02-/files/7971794/en.subject.1.pdf)
 
-  The task is to receive a sequence of elements as input and put them on the stack (```stack a```) (after checking for duplicates and literals) sort the sequence using an additional stack (```stack b```) and only the following operations:
+### Mandatory part
+
+  The task is to receive a sequence of elements as input and put them on the stack ```stack a``` (after checking for duplicates and literals) sort the sequence using an additional ```stack b``` and only the following operations:
 
 * sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
 * sb : swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements).
@@ -19,4 +21,8 @@
 * rrb : reverse rotate b - shift down all elements of stack b by 1. The last element becomes the first one.
 * rrr : rra and rrb at the same time.
 
+The program should output a sequence of commands with which you can sort the ```stack a```
+
 ### Examples:
+
+
