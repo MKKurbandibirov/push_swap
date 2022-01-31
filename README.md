@@ -37,6 +37,9 @@ The program should output a sequence of commands with which you can sort the ```
 
 ## Bonus part
 
-In this part should write your own ```checker``` programm to check your ```push_swap```
+In this part should write your own ```checker``` programm to check your ```push_swap``` and write in terminal "OK" if stack is sorted or "KO" if it is not.
 
 ### Examples:
+---
+
+---
