@@ -2,7 +2,7 @@
 
 [Subject](https://github.com/MKKurbandibirov/Numbers_convert-aka-C_Rush_02-/files/7971794/en.subject.1.pdf)
 
-### Mandatory part
+## Mandatory part
 
   The task is to receive a sequence of elements as input and put them on the stack ```stack a``` (after checking for duplicates and literals) sort the sequence using an additional ```stack b``` and only the following operations:
 
@@ -26,7 +26,17 @@ The program should output a sequence of commands with which you can sort the ```
 ### Examples:
 
 * Error validation:
+---
 ![image](https://user-images.githubusercontent.com/74917681/151823654-a5a6321c-efaf-439a-8550-9bccf278584d.png)
+---
 
-* Mandatory:
-![image]
+* Standart work:
+---
+![image](https://user-images.githubusercontent.com/74917681/151823824-b22b8d1f-edb5-4a5f-9b98-de096c45b50d.png)
+---
+
+## Bonus part
+
+In this part should write your own ```checker``` programm to check your ```push_swap```
+
+### Examples:
