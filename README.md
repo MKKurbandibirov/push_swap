@@ -1,51 +1,88 @@
-# Push Swap
 
-[Subject](https://github.com/MKKurbandibirov/Numbers_convert-aka-C_Rush_02-/files/7971794/en.subject.1.pdf)
+<h1 align="center">
+	🔄 push_swap
+</h1>
 
-## Mandatory part
+### 🗝️ Original in [**Russian**](https://github.com/AYglazk0v/push_swap/blob/master/README.md)
 
-  The task is to receive a sequence of elements as input and put them on the stack ```stack a``` (after checking for duplicates and literals) sort the sequence using an additional ```stack b``` and only the following operations:
+## 💡 About the project:
 
-* sa : swap a - swap the first 2 elements at the top of stack a. Do nothing if there is only one or no elements).
-* sb : swap b - swap the first 2 elements at the top of stack b. Do nothing if there is only one or no elements).
-* ss : sa and sb at the same time.
+> _This project will force you to sort the data on the stack, with a limited set of instructions, using as few actions as possible. To succeed, you will have to manipulate different types of algorithms and choose the most appropriate solution (out of many) for an optimized sorting of the data._
 
-* pa : push a - take the first element at the top of b and put it at the top of a. Do nothing if b is empty.
-* pb : push b - take the first element at the top of a and put it at the top of b. Do nothing if a is empty.
+	The Push swap project is a very simple algorithm project: the data must be sorted.
+	You have a set of integer values, 2 stacks and a set of instructions for
+	to handle both stacks.
+	Your goal? To write a C program called push_swap that calculates and
+	outputs to standard output the smallest program made up of
+	Push swap language instructions that sorts the integers received as
+	arguments.
 
-* ra : rotate a - shift up all elements of stack a by 1. The first element becomes the last one.
-* rb : rotate b - shift up all elements of stack b by 1. The first element becomes the last one.
-* rr : ra and rb at the same time.
+More details about the assignment can be found in  [**subject**](https://github.com/MKKurbandibirov/push_swap/blob/master/Subject.pdf).
 
-* rra : reverse rotate a - shift down all elements of stack a by 1. The last element becomes the first one.
-* rrb : reverse rotate b - shift down all elements of stack b by 1. The last element becomes the first one.
-* rrr : rra and rrb at the same time.
 
-The program should output a sequence of commands with which you can sort the ```stack a```
+## 🛠️ Usage:
 
-### Examples:
+### Requirements
 
-* Error validation:
+The function is written in C and therefore needs the `gcc` compiler and some standard C libraries to execute it.
 
-![image](https://user-images.githubusercontent.com/74917681/151823654-a5a6321c-efaf-439a-8550-9bccf278584d.png)
----
+### Instructions
 
-* Standart work:
+**1. Build the project**
 
-![image](https://user-images.githubusercontent.com/74917681/151823824-b22b8d1f-edb5-4a5f-9b98-de096c45b50d.png)
----
+To build a project, simply clone the repository and run the command there:
 
-## Bonus part
+```shell
+$ make
+```
 
-In this part should write your own ```checker``` programm to check your ```push_swap``` and write in terminal "OK" if stack is sorted or "KO" if it is not.
+**2. Using the program**
 
-### Examples:
-* Error validation the same as in the mandatory part and checking sorting commands
-* Bonus work:
+In order to execute the program you must:
 
-![image](https://user-images.githubusercontent.com/74917681/151827211-1818e580-b57d-44a3-bb5f-656893ab201c.png)
----
+```C
+$ ./push_swap $ARG
+```
 
-## Testing
+where `$ARG` is a space-separated list of integers, e.g. `ARG="1 5 2 4 3"`
 
-if you want to test your ```push_swap``` go to ```ps_test``` directory and follow the instructions in ```Readme.md``` there
+
+### Activities
+
+**PUSH:**
+Take the first element at the top of one stack and put it on top of the other; do nothing if the original stack is empty.
+
+* **`pa`** - the top element _stack b_ goes to the top of _stack a_.
+* **`pb`** - the top element _stack a_ passes to the top element _stack b_.
+
+**SWAP:**
+Swap the first 2 elements at the top of the stack; do nothing if there is only one or none.
+
+* **`sa`** - swap  _stack a_.
+* **`sb`** - swap  _stack b_.
+* **`ss`** - `sa` and `sb` per operation.
+
+**ROTATE:**
+Shift up all elements of the stack by one; the first element becomes the last one.
+
+* **`ra`** - rotate stack a.
+* **`rb`** - rotate stack b.
+* **`rr`** - `ra` and `rb` per operation.
+
+**REVERSE ROTATE:**
+Shift down all elements of the stack by one; the last element becomes the first.
+
+* **`rra`** - reverse rotate stack a.
+* **`rrb`** - reverse rotate stack b.
+* **`rrr`** - `rra` and `rrb` per operation.
+
+ ## 📋 Testing:
+
+To check the project, you can use the [checker_linux](https://github.com/AYglazk0v/push_swap/blob/master/checker_linux), or take advantage of:
+
+* [SimonCROS/push_swap_complexity_tester](https://github.com/SimonCROS/push_swap_tester)
+* [laisarena/complete_push_swap_tester](https://github.com/laisarena/push_swap_tester)
+
+You can also use the visualizer:
+
+* [o-reo/push_swap_visualizaer](https://github.com/o-reo/push_swap_visualizer)
